@@ -21,10 +21,20 @@ namespace HelloWorld30
     {
         static void Main(string[] args)
         {
-            BusinessAccount businessAccount = new BusinessAccount(32, "jorge", 300, 100);
+            Account acc = new Account(1001, "Alex", 0);
+            BusinessAccount bAcc = new BusinessAccount(1002, "Jorge", 0, 500);
 
-           // businessAccount.Balance = 300; proibido fazer essa alteração fora da classe ou subclasse com o tipo 'BusinessAccount'(protected).
+            // businessAccount.Balance = 300; proibido fazer essa alteração fora da classe ou subclasse com o tipo 'BusinessAccount'(protected).
 
+            // UPCASTING:
+            Account acc1 = bAcc; // Trasnformando um tipo 'BusinessAccount' em um 'Account'.
+            Account acc2 = new BusinessAccount(1003, "Maria", 0, 600); // Criando um tipo 'Account'(superclasse) e atribuindo a instanciação para o tipo 'BusinessAccount(subclasse)'.
+            Account acc3 = new SavingsAccount(1004, "Joao", 0, 400); // Criando um tipo 'Account'(superclasse) e atribuindo a instanciação para o tipo 'SavingsAccount(subclasse)'.
+
+            // DOWNCASTING:
+            // BusinessAccount acc4 = acc2; // Não funciona.
+            // Porque 'acc4' é uma subclasse e 'acc2' é uma superclasse (superclasse > subclasse), é preciso realizar um casting informando o tipo da subclasse dentro da superclasse: '(BusinessAccount)acc2'.
+            BusinessAccount acc4 = (BusinessAccount)acc2; 
         }
     }
 }
