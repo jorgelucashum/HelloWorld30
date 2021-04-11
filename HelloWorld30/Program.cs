@@ -31,10 +31,26 @@ namespace HelloWorld30
             Account acc2 = new BusinessAccount(1003, "Maria", 0, 600); // Criando um tipo 'Account'(superclasse) e atribuindo a instanciação para o tipo 'BusinessAccount(subclasse)'.
             Account acc3 = new SavingsAccount(1004, "Joao", 0, 400); // Criando um tipo 'Account'(superclasse) e atribuindo a instanciação para o tipo 'SavingsAccount(subclasse)'.
 
-            // DOWNCASTING:
+
+            // DOWNCASTING: // É uma operação insegura, só será usado caso for realmente necessário e verificando a lógica da classe.
             // BusinessAccount acc4 = acc2; // Não funciona.
             // Porque 'acc4' é uma subclasse e 'acc2' é uma superclasse (superclasse > subclasse), é preciso realizar um casting informando o tipo da subclasse dentro da superclasse: '(BusinessAccount)acc2'.
-            BusinessAccount acc4 = (BusinessAccount)acc2; 
+            BusinessAccount acc4 = (BusinessAccount)acc2;
+
+            // BusinessAccount acc5 = (BusinessAccount)acc3; // Dará erro porque o 'acc3' é do tipo SavingsAccount que não é compativel com o tipo 'BusinessAccount'
+            if (acc3 is BusinessAccount) // 'is' para testar se 'acc3' é de um tipo compatível para realizar a conversão.
+            {
+                BusinessAccount acc5 = (BusinessAccount)acc3; // Outra forma de casting com operador 'as': // acc3 as BusinessAccount;
+                acc5.Loan(200);
+                Console.WriteLine("Loan");
+            }
+
+            if (acc3 is SavingsAccount) // 'is' para testar se 'acc3'
+            {
+                SavingsAccount acc5 = (SavingsAccount)acc3; // Outra forma de casting com operador 'as': // acc3 as SavingsAccount;
+                acc5.UpdateBalance();
+                Console.WriteLine("Update");
+            }
         }
     }
 }
