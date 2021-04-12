@@ -11,7 +11,7 @@ namespace HelloWorld30.Entities
         {
         }
 
-        public BusinessAccount(int number, string holder, double balance, double loanLimit) : base(number, holder, balance) // ': base' sintaxe para herdar os argumentos do construtor da super classe(base class).
+        public BusinessAccount(int number, string holder, double balance, double loanLimit) : base(number, holder, balance) // ': base()' sintaxe para herdar os argumentos do construtor da super classe(base class).
         {
             LoanLimit = loanLimit;
         }

@@ -17,7 +17,7 @@ namespace HelloWorld30.Entities
     // Palavra 'as'
     // Palavra 'is'
     // Uso comum: Métodos que recebem parâmetros genéricos (ex: Equals)
-    class SavingsAccount : Account
+    class SavingsAccount : Account // ':' Sintaxe para a classe 'SavingsAccount' herdar todos os atributos e métodos da classe 'Account' (herança).
     {
         public double InterestRate { get; set; }
 
